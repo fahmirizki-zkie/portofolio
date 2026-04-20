@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- 00. HEAD / META & ASSETS -->
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Fahmi Rizki</title>
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- 01. NAVBAR / HEADER -->
+
+    <section id="navbar" class="navbar">
+      <h1 class="logo">Fahmi<span> Rizki.</span></h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="cta">Get in Touch</a>
+      </nav>
+    </section>
+
+    <!-- 02. HERO SECTION -->
+
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <h1>Hi, I'm Fahmi Rizki Yuiyanto</h1>
+        <p>
+          I'm a passionate web developer specializing in creating dynamic and
+          responsive websites.
+          <br />
+          With a strong foundation in HTML, CSS, and JavaScript.
+        </p>
+        <a href="#projects" class="cta">View My Work</a>
+      </div>
+
+      <div class="code-showcase">
+        <div class="shape-cluster shape-cluster-left" aria-hidden="true">
+          <span class="bg-shape bg-dot-left"></span>
+          <span class="bg-shape bg-l-square"></span>
+          <span class="bg-shape bg-l-triangle"></span>
+          <span class="bg-shape bg-l-outline"></span>
+          <span class="bg-shape bg-l-circle"></span>
+        </div>
+        <div class="shape-cluster shape-cluster-right" aria-hidden="true">
+          <span class="bg-shape bg-dot-left"></span>
+          <span class="bg-shape bg-l-square"></span>
+          <span class="bg-shape bg-l-triangle"></span>
+          <span class="bg-shape bg-l-outline"></span>
+          <span class="bg-shape bg-l-circle"></span>
+        </div>
+
+        <div class="code-card">
+          <div class="code-head">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+
+          <pre id="auto-code" class="code-body"></pre>
+
+          <span class="chip chip-top">Golang</span>
+          <span class="chip chip-bottom">NestJS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03. TESTIMONIAL SECTION -->
+
+    <section id="testimonial" class="s3-testimonial">
+      <span
+        class="s3-floating-dot s3-floating-dot-left"
+        aria-hidden="true"
+      ></span>
+      <span
+        class="s3-floating-dot s3-floating-dot-center"
+        aria-hidden="true"
+      ></span>
+      <div class="s3-wrap">
+        <p class="s3-quote">
+          "Building clean UI is easy. Building useful products is the real
+          craft.”
+        </p>
+
+        <div class="gambar1">
+          <i class="fa-solid fa-bezier-curve logo-icon"></i>
+          <h1>Fahmi<span> Rizki.</span></h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04. PROOF SECTION -->
+
+    <section id="proof" class="wf-proof">
+      <div class="wf-proof-inner">
+        <div class="wf-proof-copy">
+          <h2 class="wf-proof-title">
+            Building products that are beautiful and useful
+          </h2>
+
+          <p class="wf-proof-lead">
+            I help startups and businesses transform raw ideas into fast,
+            modern, and conversion-focused digital products.
+          </p>
+
+          <p class="wf-proof-quote">
+            Clear communication, thoughtful decisions, and reliable execution
+            from concept to launch.
+          </p>
+
+          <p class="wf-proof-author">
+            <span class="wf-proof-author-dot"></span>
+            Fahmi , Software Engineer
+          </p>
+        </div>
+
+        <div class="wf-proof-visual" aria-hidden="true">
+          <div class="wf-card wf-card-back"></div>
+          <div class="wf-card wf-card-front"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05. PROJECTS SECTION -->
+
+    <section id="projects" class="vp-section">
+      <div class="vp-wrap">
+        <p class="vp-eyebrow">Selected Projects</p>
+        <h2 class="vp-title">Projects That Deliver Real Impact</h2>
+        <p class="vp-subtitle">
+          Beberapa project yang saya bangun dari nol, mulai dari desain alur,
+          pengembangan fitur, sampai siap dipakai user.
+        </p>
+
+        <div class="vp-grid">
+          <article class="vp-card">
+            <div class="vp-card-visual">
+              <span class="vp-icon">
+                <i class="fa-solid fa-chart-line"></i>
+              </span>
+            </div>
+            <div class="vp-card-body">
+              <h3>FinTrack Dashboard</h3>
+              <p>
+                Dashboard keuangan multi-role dengan insight realtime untuk
+                membantu tim mengambil keputusan lebih cepat.
+              </p>
+              <a href="#proof" class="vp-link">See More</a>
+            </div>
+          </article>
+
+          <article class="vp-card">
+            <div class="vp-card-visual">
+              <span class="vp-icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </span>
+            </div>
+            <div class="vp-card-body">
+              <h3>Commerce Admin + API</h3>
+              <p>
+                Sistem e-commerce dengan panel admin, manajemen produk,
+                transaksi, dan backend API yang scalable.
+              </p>
+              <a href="#proof" class="vp-link">See More</a>
+            </div>
+          </article>
+
+          <article class="vp-card">
+            <div class="vp-card-visual">
+              <span class="vp-icon">
+                <i class="fa-solid fa-building"></i>
+              </span>
+            </div>
+            <div class="vp-card-body">
+              <h3>Company Site + CMS</h3>
+              <p>
+                Website corporate modern dengan CMS custom agar tim non-teknis
+                bisa update konten tanpa bantuan developer.
+              </p>
+              <a href="#proof" class="vp-link">See More</a>
+            </div>
+          </article>
+
+          <article class="vp-card">
+            <div class="vp-card-visual">
+              <span class="vp-icon">
+                <i class="fa-solid fa-calendar-check"></i>
+              </span>
+            </div>
+            <div class="vp-card-body">
+              <h3>
+                Booking <br />
+                System
+              </h3>
+              <p>
+                Aplikasi booking layanan dengan jadwal otomatis, notifikasi, dan
+                alur user yang simpel dari reservasi sampai konfirmasi.
+              </p>
+              <a href="#proof" class="vp-link">See More</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06. CASE STUDY SECTION -->
+
+    <section id="about" class="case-section">
+      <div class="case-wrap">
+        <div class="case-media" aria-hidden="true">
+          <div class="case-media-card">
+            <img
+              src="img/case-study.png"
+              alt="Case study dashboard"
+              class="case-image"
+            />
+          </div>
+        </div>
+
+        <div class="case-copy">
+          <p class="case-eyebrow">Featured Case Study</p>
+          <h2 class="case-title">
+            Feature that is amazing, with measurable result
+          </h2>
+          <p class="case-desc">
+            Redesign alur dashboard dan backend API agar tim operasional bisa
+            bekerja lebih cepat, data lebih akurat, dan user experience tetap
+            ringan di semua device.
+          </p>
+
+          <ul class="case-metrics">
+            <li><strong>-38%</strong> Average load time</li>
+            <li><strong>+22%</strong> Conversion to checkout</li>
+            <li><strong>-41%</strong> Manual support tickets</li>
+          </ul>
+
+          <a href="#projects" class="case-btn">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07. CONTACT / LEAD SECTION -->
+
+    <section id="contact" class="lead-section">
+      <div class="lead-wrap">
+        <p class="lead-eyebrow">Let’s Build Something Useful</p>
+        <h2 class="lead-title">Try the product idea out for real.</h2>
+        <p class="lead-subtitle">
+          Ceritakan kebutuhanmu, saya bantu ubah jadi produk yang siap dipakai
+          user.
+        </p>
+
+        <form class="lead-form" action="#" method="post">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <input
+            type="text"
+            name="projectType"
+            placeholder="Project type (Web App, Landing Page, API)"
+          />
+          <input type="text" name="budget" placeholder="Budget range" />
+          <textarea
+            name="brief"
+            placeholder="Short project brief..."
+            rows="4"
+          ></textarea>
+          <button type="submit">Start project discussion</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- 08. FOOTER SECTION -->
+
+    <footer class="site-footer">
+      <div class="footer-wrap">
+        <div class="footer-brand">
+          <h3>Fahmi<span> Rizki.</span></h3>
+          <p>
+            Designing and building modern digital products with clear outcomes.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <a href="#hero">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer-links">
+          <h4>Services</h4>
+          <a href="#projects">Web App Development</a>
+          <a href="#projects">Landing Page</a>
+          <a href="#projects">Backend API</a>
+          <a href="#projects">UI Implementation</a>
+        </div>
+
+        <div class="footer-links">
+          <h4>Connect</h4>
+          <a href="mailto:fahmi@example.com">fahmi@example.com</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">GitHub</a>
+          <a href="#">Instagram</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Fahmi Rizki</span>
+        <span>Available for freelance projects</span>
+      </div>
+    </footer>
+
+    <!-- 09. SCRIPTS -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
