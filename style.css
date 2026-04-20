@@ -360,6 +360,19 @@ body.intro-on .code-showcase {
   }
 }
 
+@keyframes introShowcaseInMobile {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.985);
+    filter: blur(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   body.intro-on .navbar,
   body.intro-on .hero-content,
@@ -1581,8 +1594,13 @@ body.reveal-ready .section-reveal.is-revealed .wf-proof-inner {
     left: auto;
     bottom: auto;
     transform: none;
-    margin: 22px auto 0;
     width: min(680px, 94vw);
+    margin: 22px auto 0;
+  }
+
+  body.intro-on .code-showcase {
+    animation: introShowcaseInMobile 760ms cubic-bezier(0.2, 0.8, 0.2, 1) 160ms
+      forwards;
   }
 
   .code-showcase .shape-cluster {
