@@ -114,11 +114,6 @@ section {
   cursor: pointer;
 }
 
-.logo span {
-  color: var(--accent-2);
-  transition: color 0.25s ease;
-}
-
 .logo:hover {
   color: var(--accent);
 }
@@ -1693,27 +1688,32 @@ body.reveal-ready .section-reveal.is-revealed .wf-proof-inner {
 @media (max-width: 700px) {
   .navbar {
     padding: 10px 14px;
+    align-items: flex-start;
   }
 
   nav {
+    width: auto;
+    margin-left: auto;
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-end;
     gap: 10px;
   }
 
   .nav-links {
-    justify-content: space-between;
+    justify-content: flex-end;
+    flex-wrap: wrap;
     margin-right: 0;
-    gap: 2px;
+    gap: 4px;
   }
 
   .nav-links a {
     font-size: 13px;
-    padding: 8px 6px;
+    padding: 8px 8px;
   }
 
   .navbar .cta {
-    width: 100%;
+    width: auto;
+    align-self: flex-end;
     padding: 10px 12px;
   }
 
