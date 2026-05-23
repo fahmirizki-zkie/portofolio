@@ -10,28 +10,42 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
       rel="stylesheet"
     />
+    <!-- Google Fonts - Design System -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress">
+      <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    </div>
+
     <!-- 01. NAVBAR / HEADER -->
 
     <section id="navbar" class="navbar">
       <h1 class="logo">Fahmi.</h1>
-      <nav>
+      
+      <!-- Hamburger Menu Button (Mobile Only) -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <nav id="navMenu">
         <ul class="nav-links">
           <li><a href="#hero">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#chat">Chat</a></li>
         </ul>
-        <a href="#contact" class="cta">Get in Touch</a>
+        <a href="#chat" class="cta">Mulai Chat</a>
       </nav>
     </section>
 
@@ -39,43 +53,74 @@
 
     <section id="hero" class="hero">
       <div class="hero-content">
-        <h1>Hi, I'm Fahmi Rizki Yuiyanto</h1>
+        <h1>Hai, saya Fahmi Rizki Yuiyanto</h1>
         <p>
-          I'm a passionate web developer specializing in creating dynamic and
-          responsive websites.
-          <br />
-          With a strong foundation in HTML, CSS, and JavaScript.
+        Mahasiswa D4 Teknik Informatika Universitas Airlangga dengan passion
+        di bidang IT dan UI/UX Design.
+        <br />
+        Saya percaya bahwa teknologi yang baik lahir dari desain yang intuitif
+        dan itulah yang selalu saya kejar dalam setiap karya.
         </p>
-        <a href="#projects" class="cta">View My Work</a>
+        
+        <!-- Animated Stats -->
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number" data-target="5">0</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="8">0</span>
+            <span class="stat-label">Skills</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="2">0</span>
+            <span class="stat-label">Years Learning</span>
+          </div>
+        </div>
+        
+        <div class="hero-actions">
+          <div class="hero-socials">
+            <a href="#" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+          <a href="#projects" class="cta">Lihat Proyek</a>
+        </div>
       </div>
 
       <div class="code-showcase">
-        <div class="shape-cluster shape-cluster-left" aria-hidden="true">
-          <span class="bg-shape bg-dot-left"></span>
-          <span class="bg-shape bg-l-square"></span>
-          <span class="bg-shape bg-l-triangle"></span>
-          <span class="bg-shape bg-l-outline"></span>
-          <span class="bg-shape bg-l-circle"></span>
-        </div>
-        <div class="shape-cluster shape-cluster-right" aria-hidden="true">
-          <span class="bg-shape bg-dot-left"></span>
-          <span class="bg-shape bg-l-square"></span>
-          <span class="bg-shape bg-l-triangle"></span>
-          <span class="bg-shape bg-l-outline"></span>
-          <span class="bg-shape bg-l-circle"></span>
-        </div>
+        <div class="code-aura" aria-hidden="true"></div>
 
-        <div class="code-card">
-          <div class="code-head">
-            <span class="dot dot-red"></span>
-            <span class="dot dot-yellow"></span>
-            <span class="dot dot-green"></span>
+        <div class="photo-card">
+          <img src="img/fp.jpeg" alt="Fahmi Rizki portrait" class="photo-img" />
+          <div class="photo-overlay" aria-hidden="true"></div>
+
+          <div class="photo-title">
+            <h3>Fahmi Rizki</h3>
+            <span>Mahasiswa Teknik Informatika</span>
           </div>
 
-          <pre id="auto-code" class="code-body"></pre>
-
-          <span class="chip chip-top">Golang</span>
-          <span class="chip chip-bottom">NestJS</span>
+          <div class="photo-footer">
+            <div class="photo-user">
+              <img
+                src="img/fp.jpeg"
+                alt=""
+                class="photo-avatar"
+                aria-hidden="true"
+              />
+              <div class="photo-meta">
+                <span class="photo-handle">@fahmirizki</span>
+                <span class="photo-status">Online</span>
+              </div>
+            </div>
+            <a href="#chat" class="photo-cta">Hubungi Saya</a>
+          </div>
         </div>
       </div>
     </section>
@@ -93,13 +138,85 @@
       ></span>
       <div class="s3-wrap">
         <p class="s3-quote">
-          "Building clean UI is easy. Building useful products is the real
-          craft.”
+        Setiap hari saya bukan versi terbaik saya, tapi selalu lebih baik dari kemarin
         </p>
 
         <div class="gambar1">
-          <i class="fa-solid fa-bezier-curve logo-icon"></i>
           <h1>Fahmi<span> Rizki.</span></h1>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03A. SKILLS SECTION -->
+    <section id="skills" class="skills-section">
+      <div class="skills-wrap">
+        <p class="skills-eyebrow">Tech Stack</p>
+        <h2 class="skills-title">Creative & Tech Stack</h2>
+        
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fa-solid fa-database"></i>
+            </div>
+            <h3>MySQL</h3>
+            <p>DATABASE</p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fa-brands fa-html5"></i>
+            </div>
+            <h3>HTML</h3>
+            <p>MARKUP</p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fa-brands fa-css3-alt"></i>
+            </div>
+            <h3>CSS</h3>
+            <p>STYLING</p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fa-brands fa-php"></i>
+            </div>
+            <h3>PHP</h3>
+            <p>BACKEND</p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fa-brands fa-laravel"></i>
+            </div>
+            <h3>Laravel</h3>
+            <p>FRAMEWORK</p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fa-brands fa-figma"></i>
+            </div>
+            <h3>Figma</h3>
+            <p>UI/UX DESIGN</p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fa-solid fa-server"></i>
+            </div>
+            <h3>Laragon</h3>
+            <p>DEV ENVIRONMENT</p>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fa-solid fa-diagram-project"></i>
+            </div>
+            <h3>Draw.io</h3>
+            <p>DIAGRAM TOOL</p>
+          </div>
         </div>
       </div>
     </section>
@@ -110,22 +227,20 @@
       <div class="wf-proof-inner">
         <div class="wf-proof-copy">
           <h2 class="wf-proof-title">
-            Building products that are beautiful and useful
+            Membangun produk yang indah dan berguna
           </h2>
 
           <p class="wf-proof-lead">
-            I help startups and businesses transform raw ideas into fast,
-            modern, and conversion-focused digital products.
+            Saya mahasiswa Teknik Informatika yang sedang serius mengasah kemampuan di bidang IT dan UI/UX Design — mengubah ide menjadi produk digital yang rapi, modern, dan berdampak nyata.
           </p>
 
           <p class="wf-proof-quote">
-            Clear communication, thoughtful decisions, and reliable execution
-            from concept to launch.
+            Masih banyak yang ingin saya pelajari, tapi satu hal yang tidak pernah saya tunda: bergerak, mencoba, dan terus berkembang.
           </p>
 
           <p class="wf-proof-author">
             <span class="wf-proof-author-dot"></span>
-            Fahmi , Software Engineer
+            Fahmi, Mahasiswa Teknik Informatika
           </p>
         </div>
 
@@ -140,78 +255,86 @@
 
     <section id="projects" class="vp-section">
       <div class="vp-wrap">
-        <p class="vp-eyebrow">Selected Projects</p>
-        <h2 class="vp-title">Projects That Deliver Real Impact</h2>
+        <p class="vp-eyebrow">Proyek</p>
+        <h2 class="vp-title">Karya yang Lahir dari Proses Belajar</h2>
         <p class="vp-subtitle">
-          Beberapa project yang saya bangun dari nol, mulai dari desain alur,
-          pengembangan fitur, sampai siap dipakai user.
+          Setiap project di sini adalah bukti perjalanan belajar saya dirancang, dikembangkan, dan diselesaikan dengan semangat yang tidak pernah setengah-setengah.
         </p>
 
         <div class="vp-grid">
           <article class="vp-card">
             <div class="vp-card-visual">
-              <span class="vp-icon">
-                <i class="fa-solid fa-chart-line"></i>
-              </span>
+              <img
+                src="img/RSHP.png"
+                alt="RSHP project preview"
+                class="vp-thumb"
+              />
             </div>
             <div class="vp-card-body">
-              <h3>FinTrack Dashboard</h3>
-              <p>
-                Dashboard keuangan multi-role dengan insight realtime untuk
-                membantu tim mengambil keputusan lebih cepat.
-              </p>
-              <a href="#proof" class="vp-link">See More</a>
+              <h3>RSHP Dashboard</h3>
+              <p>Dashboard RSHP untuk monitoring layanan dan laporan harian.</p>
+              <a href="#proof" class="vp-link">Lihat Detail</a>
             </div>
           </article>
 
           <article class="vp-card">
             <div class="vp-card-visual">
-              <span class="vp-icon">
-                <i class="fa-solid fa-cart-shopping"></i>
-              </span>
+              <img
+                src="img/weatherweb.png"
+                alt="Weather app preview"
+                class="vp-thumb"
+              />
             </div>
             <div class="vp-card-body">
-              <h3>Commerce Admin + API</h3>
+              <h3>Aplikasi Cuaca</h3>
               <p>
-                Sistem e-commerce dengan panel admin, manajemen produk,
-                transaksi, dan backend API yang scalable.
+                Aplikasi cuaca dengan kondisi real-time dan prakiraan harian.
               </p>
-              <a href="#proof" class="vp-link">See More</a>
+              <a href="#proof" class="vp-link">Lihat Detail</a>
             </div>
           </article>
 
           <article class="vp-card">
             <div class="vp-card-visual">
-              <span class="vp-icon">
-                <i class="fa-solid fa-building"></i>
-              </span>
+              <img
+                src="img/Figma.png"
+                alt="Figma design preview"
+                class="vp-thumb"
+              />
             </div>
             <div class="vp-card-body">
-              <h3>Company Site + CMS</h3>
-              <p>
-                Website corporate modern dengan CMS custom agar tim non-teknis
-                bisa update konten tanpa bantuan developer.
-              </p>
-              <a href="#proof" class="vp-link">See More</a>
+              <h3>Testy Go</h3>
+              <p>Design system untuk aplikasi Testy Go.</p>
+              <a href="#proof" class="vp-link">Lihat Detail</a>
             </div>
           </article>
 
           <article class="vp-card">
             <div class="vp-card-visual">
-              <span class="vp-icon">
-                <i class="fa-solid fa-calendar-check"></i>
-              </span>
+              <img
+                src="img/case-study.png"
+                alt="Case study preview"
+                class="vp-thumb"
+              />
             </div>
             <div class="vp-card-body">
-              <h3>
-                Booking <br />
-                System
-              </h3>
-              <p>
-                Aplikasi booking layanan dengan jadwal otomatis, notifikasi, dan
-                alur user yang simpel dari reservasi sampai konfirmasi.
-              </p>
-              <a href="#proof" class="vp-link">See More</a>
+              <h3>Portfolio</h3>
+              <p>Portfolio saya sebagai mahasiswa Teknik Informatika</p>
+              <a href="#proof" class="vp-link">Lihat Detail</a>
+            </div>
+          </article>
+          <article class="vp-card">
+            <div class="vp-card-visual">
+              <img
+                src="img/pbd.png"
+                alt="Case study preview"
+                class="vp-thumb"
+              />
+            </div>
+            <div class="vp-card-body">
+              <h3>Inventory System</h3>
+              <p>Sistem manajemen inventaris untuk mengelola keluar masuk barang serta penjualan</p>
+              <a href="#proof" class="vp-link">Lihat Detail</a>
             </div>
           </article>
         </div>
@@ -225,64 +348,81 @@
         <div class="case-media" aria-hidden="true">
           <div class="case-media-card">
             <img
-              src="img/case-study.png"
-              alt="Case study dashboard"
+              src="img/pbd.png"
               class="case-image"
             />
           </div>
         </div>
 
         <div class="case-copy">
-          <p class="case-eyebrow">Featured Case Study</p>
-          <h2 class="case-title">
-            Feature that is amazing, with measurable result
-          </h2>
+          <p class="case-eyebrow">Studi Kasus Unggulan</p>
+          <h2 class="case-title">System Manajemen Inventaris</h2>
           <p class="case-desc">
-            Redesign alur dashboard dan backend API agar tim operasional bisa
-            bekerja lebih cepat, data lebih akurat, dan user experience tetap
-            ringan di semua device.
+            Banyak bisnis kecil masih mencatat stok barang secara manual rawan human error, lambat, dan susah dilacak. Saya membangun sistem berbasis web yang membantu pengelola gudang mencatat barang masuk & keluar secara real-time, sekaligus merekap data penjualan dalam satu dashboard yang mudah dipahami.
           </p>
 
-          <ul class="case-metrics">
-            <li><strong>-38%</strong> Average load time</li>
-            <li><strong>+22%</strong> Conversion to checkout</li>
-            <li><strong>-41%</strong> Manual support tickets</li>
-          </ul>
-
-          <a href="#projects" class="case-btn">Learn More</a>
+          <a href="#projects" class="case-btn">Selengkapnya</a>
         </div>
       </div>
     </section>
 
-    <!-- 07. CONTACT / LEAD SECTION -->
+    <!-- 07. CHAT SECTION -->
 
-    <section id="contact" class="lead-section">
-      <div class="lead-wrap">
-        <p class="lead-eyebrow">Let’s Build Something Useful</p>
-        <h2 class="lead-title">Try the product idea out for real.</h2>
+    <section id="chat" class="lead-section chat-section">
+      <div class="lead-wrap chat-wrap">
+        <p class="lead-eyebrow">Hubungi Saya</p>
+        <h2 class="lead-title">Kirim pesan langsung ke email saya.</h2>
         <p class="lead-subtitle">
-          Ceritakan kebutuhanmu, saya bantu ubah jadi produk yang siap dipakai
-          user.
+          Isi form di bawah dan pesan kamu akan langsung masuk ke inbox saya. Saya akan balas secepat mungkin!
         </p>
 
-        <form class="lead-form" action="#" method="post">
-          <input type="text" name="name" placeholder="Your name" required />
-          <input type="email" name="email" placeholder="Email" required />
-          <input
-            type="text"
-            name="projectType"
-            placeholder="Project type (Web App, Landing Page, API)"
-          />
-          <input type="text" name="budget" placeholder="Budget range" />
-          <textarea
-            name="brief"
-            placeholder="Short project brief..."
-            rows="4"
-          ></textarea>
-          <button type="submit">Start project discussion</button>
-        </form>
+        <p class="chat-hint" id="siteChatHint" aria-live="polite">Ketik pesan lalu tekan Kirim pesan.</p>
+
+        <div class="lead-card chat-card">
+          <div class="chat-panel-head">
+            <div>
+              <h3>Form Kontak</h3>
+              <p>Pesan akan dikirim langsung ke email saya.</p>
+            </div>
+            <div class="chat-badge">✉️ Email Langsung</div>
+          </div>
+
+          <form 
+            class="chat-composer" 
+            id="siteChatForm"
+          >
+            <div class="chat-grid">
+              <input type="text" id="chatName" name="name" placeholder="Nama kamu" required />
+              <input type="email" id="chatEmail" name="email" placeholder="Email kamu" required />
+            </div>
+
+            <div class="chat-grid">
+              <input type="text" id="chatProjectType" name="project_type" placeholder="Jenis project (opsional)" />
+              <input type="text" id="chatBudget" name="budget" placeholder="Budget (opsional)" />
+            </div>
+
+            <textarea id="chatMessage" name="message" placeholder="Tulis pesan kamu di sini..." required></textarea>
+
+            <div class="chat-actions">
+              <div class="chat-actions-left">
+                <button type="submit" class="btn-primary" id="siteChatSendBtn">Kirim pesan</button>
+              </div>
+              <span class="chat-status" id="siteChatStatus" role="status" aria-live="polite">Siap mengirim.</span>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
+
+    <!-- Success Notification Popup -->
+    <div id="successNotification" class="notification-popup" style="display: none;">
+      <div class="notification-content">
+        <div class="notification-icon">✓</div>
+        <h3>Pesan Berhasil Dikirim!</h3>
+        <p>Terima kasih sudah menghubungi saya. Pesan kamu sudah masuk ke inbox saya dan akan saya balas secepat mungkin.</p>
+        <button class="notification-close" onclick="closeNotification()">Tutup</button>
+      </div>
+    </div>
 
     <!-- 08. FOOTER SECTION -->
 
@@ -291,28 +431,21 @@
         <div class="footer-brand">
           <h3>Fahmi<span> Rizki.</span></h3>
           <p>
-            Designing and building modern digital products with clear outcomes.
+            Merancang dan membangun produk digital modern dengan hasil yang
+            jelas.
           </p>
         </div>
 
         <div class="footer-links">
-          <h4>Navigation</h4>
+          <h4>Navigasi</h4>
           <a href="#hero">Home</a>
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+          <a href="#chat">Chat</a>
         </div>
 
         <div class="footer-links">
-          <h4>Services</h4>
-          <a href="#projects">Web App Development</a>
-          <a href="#projects">Landing Page</a>
-          <a href="#projects">Backend API</a>
-          <a href="#projects">UI Implementation</a>
-        </div>
-
-        <div class="footer-links">
-          <h4>Connect</h4>
+          <h4>Kontak</h4>
           <a href="mailto:fahmi@example.com">fahmi@example.com</a>
           <a href="#">LinkedIn</a>
           <a href="#">GitHub</a>
@@ -322,12 +455,20 @@
 
       <div class="footer-bottom">
         <span>© 2026 Fahmi Rizki</span>
-        <span>Available for freelance projects</span>
+        <span>Tersedia untuk proyek freelance</span>
       </div>
     </section>
 
     <!-- 09. SCRIPTS -->
 
     <script src="script.js"></script>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+    </button>
+
   </body>
 </html>

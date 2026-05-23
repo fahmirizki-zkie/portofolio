@@ -1,4 +1,33 @@
-// 01. CTA hover tilt interaction
+// 01. Hamburger Menu Toggle
+const hamburgerBtn = document.getElementById("hamburgerBtn");
+const navMenu = document.getElementById("navMenu");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+if (hamburgerBtn && navMenu) {
+  // Toggle menu on hamburger click
+  hamburgerBtn.addEventListener("click", function () {
+    hamburgerBtn.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  });
+
+  // Close menu when clicking nav links
+  navLinks.forEach(link => {
+    link.addEventListener("click", function () {
+      hamburgerBtn.classList.remove("active");
+      navMenu.classList.remove("active");
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", function (e) {
+    if (!navMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+      hamburgerBtn.classList.remove("active");
+      navMenu.classList.remove("active");
+    }
+  });
+}
+
+// 02. CTA hover tilt interaction
 const cta = document.querySelector(".cta");
 
 if (cta) {
@@ -15,7 +44,7 @@ if (cta) {
   });
 }
 
-// 02. Navbar scroll state
+// 03. Navbar scroll state
 const navbar = document.querySelector(".navbar");
 
 function updateNavbarOnScroll() {
@@ -30,7 +59,7 @@ function updateNavbarOnScroll() {
 window.addEventListener("scroll", updateNavbarOnScroll);
 updateNavbarOnScroll();
 
-// 03. Intro animation trigger (first load)
+// 04. Intro animation trigger (first load)
 (function setupIntroOnLoadOnly() {
   const body = document.body;
   if (!body) return;
@@ -38,7 +67,7 @@ updateNavbarOnScroll();
   body.classList.add("intro-on");
 })();
 
-// 04. Section reveal observer (after hero)
+// 05. Section reveal observer (after hero)
 (function setupSectionRevealOnceAfterHero() {
   const body = document.body;
   const hero = document.getElementById("hero");
@@ -78,83 +107,170 @@ updateNavbarOnScroll();
   revealSections.forEach((section) => observer.observe(section));
 })();
 
-// 05. Auto-typing code showcase
-(function () {
-  const el = document.getElementById("auto-code");
-  if (!el) return;
+// 05. Homepage inline chat widget - FormSubmit.co version with AJAX
+(function setupHomepageChat() {
+  const form = document.getElementById('siteChatForm');
+  if (!form) return;
 
-  const stream = [
-    { text: "const", cls: "tk-keyword" },
-    { text: " stack ", cls: "tk-name" },
-    { text: "= {\n", cls: "" },
+  const statusText = document.getElementById('siteChatStatus');
+  const hintText = document.getElementById('siteChatHint');
+  const sendBtn = document.getElementById('siteChatSendBtn');
 
-    { text: "  go: ", cls: "tk-prop" },
-    { text: '["Gin", "Fiber"],\n', cls: "tk-string" },
-
-    { text: "  node: ", cls: "tk-prop" },
-    { text: '"NestJS",\n', cls: "tk-string" },
-
-    { text: "  db: ", cls: "tk-prop" },
-    { text: '"PostgreSQL",\n', cls: "tk-string" },
-
-    { text: "  architecture: ", cls: "tk-prop" },
-    { text: '"Microservices",\n', cls: "tk-string" },
-
-    { text: "  scaling: ", cls: "tk-prop" },
-    { text: '"Docker"\n', cls: "tk-string" },
-
-    { text: "};", cls: "" },
-  ];
-
-  const speed = 28;
-  const hold = 1400;
-
-  let tokenIndex = 0;
-  let charIndex = 0;
-  let html = "";
-
-  function esc(ch) {
-    if (ch === "&") return "&amp;";
-    if (ch === "<") return "&lt;";
-    if (ch === ">") return "&gt;";
-    return ch;
-  }
-
-  function render() {
-    el.innerHTML = html + '<span class="cursor">|</span>';
-  }
-
-  function type() {
-    if (tokenIndex >= stream.length) {
-      setTimeout(() => {
-        tokenIndex = 0;
-        charIndex = 0;
-        html = "";
-        render();
-        type();
-      }, hold);
-      return;
+  function setStatus(text, isError = false) {
+    if (statusText) {
+      statusText.textContent = text;
+      statusText.classList.toggle('error', isError);
     }
+    if (hintText) {
+      hintText.textContent = text;
+      hintText.classList.toggle('error', isError);
+    }
+  }
 
-    const token = stream[tokenIndex];
-    const ch = token.text[charIndex];
+  function showSuccessNotification() {
+    const notification = document.getElementById('successNotification');
+    if (notification) {
+      notification.style.display = 'flex';
+    }
+  }
 
-    if (token.cls) {
-      html += '<span class="' + token.cls + '">' + esc(ch) + "</span>";
+  form.addEventListener('submit', async function(event) {
+    event.preventDefault();
+    
+    sendBtn.disabled = true;
+    setStatus('Mengirim pesan...');
+
+    // Prepare form data
+    const formData = new FormData(form);
+    
+    // Add FormSubmit.co configuration
+    formData.append('_subject', 'Pesan Baru dari Portfolio Website');
+    formData.append('_captcha', 'false');
+    formData.append('_template', 'table');
+
+    try {
+      // Submit to FormSubmit.co
+      const response = await fetch('https://formsubmit.co/fahmirizki.xf@gmail.com', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        // Success!
+        form.reset();
+        setStatus('Pesan berhasil dikirim!');
+        showSuccessNotification();
+      } else {
+        throw new Error('Gagal mengirim pesan');
+      }
+    } catch (error) {
+      setStatus('Gagal mengirim pesan. Coba lagi.', true);
+      console.error('Error:', error);
+    } finally {
+      sendBtn.disabled = false;
+    }
+  });
+
+  // Initial status
+  setStatus('Siap mengirim.');
+})();
+
+// Close notification function
+function closeNotification() {
+  const notification = document.getElementById('successNotification');
+  if (notification) {
+    notification.style.display = 'none';
+  }
+}
+
+
+
+
+// 06. Scroll Progress Bar
+(function setupScrollProgress() {
+  const progressBar = document.getElementById('scrollProgressBar');
+  if (!progressBar) return;
+
+  function updateScrollProgress() {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+    
+    progressBar.style.width = scrollPercent + '%';
+  }
+
+  window.addEventListener('scroll', updateScrollProgress);
+  updateScrollProgress();
+})();
+
+// 07. Back to Top Button
+(function setupBackToTop() {
+  const backToTopBtn = document.getElementById('backToTop');
+  if (!backToTopBtn) return;
+
+  function toggleBackToTop() {
+    if (window.pageYOffset > 300) {
+      backToTopBtn.classList.add('show');
     } else {
-      html += esc(ch);
+      backToTopBtn.classList.remove('show');
     }
-
-    charIndex += 1;
-
-    if (charIndex >= token.text.length) {
-      tokenIndex += 1;
-      charIndex = 0;
-    }
-
-    render();
-    setTimeout(type, speed);
   }
 
-  type();
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  window.addEventListener('scroll', toggleBackToTop);
+  toggleBackToTop();
+})();
+
+// 08. Animated Stats Counter
+(function setupStatsCounter() {
+  const statNumbers = document.querySelectorAll('.stat-number');
+  if (statNumbers.length === 0) return;
+
+  let hasAnimated = false;
+
+  function animateValue(element, start, end, duration) {
+    const range = end - start;
+    const increment = end > start ? 1 : -1;
+    const stepTime = Math.abs(Math.floor(duration / range));
+    let current = start;
+
+    const timer = setInterval(() => {
+      current += increment;
+      element.textContent = current;
+      if (current === end) {
+        clearInterval(timer);
+      }
+    }, stepTime);
+  }
+
+  function checkStatsInView() {
+    if (hasAnimated) return;
+
+    const statsSection = document.querySelector('.hero-stats');
+    if (!statsSection) return;
+
+    const rect = statsSection.getBoundingClientRect();
+    const isInView = rect.top < window.innerHeight && rect.bottom >= 0;
+
+    if (isInView) {
+      hasAnimated = true;
+      statNumbers.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        animateValue(stat, 0, target, 2000);
+      });
+    }
+  }
+
+  window.addEventListener('scroll', checkStatsInView);
+  checkStatsInView();
 })();
